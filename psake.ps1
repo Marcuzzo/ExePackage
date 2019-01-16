@@ -64,12 +64,12 @@ Task Deploy -depends Analyze {
         Try 
         {            
             $PM = @{
-                Path        = '.\ExePackage'
+                Path        = ".\$ProjectName"
                 NuGetApiKey = $env:NuGetApiKey
                 ErrorAction = 'Stop'
             }
             Publish-Module @PM
-            Write-Host "ExePackage Resource published to the PowerShell Gallery." -ForegroundColor Cyan
+            Write-Host "$ProjectName published to the PowerShell Gallery." -ForegroundColor Cyan
         }
         Catch 
         {
