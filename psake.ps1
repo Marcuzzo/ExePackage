@@ -49,7 +49,7 @@ Task Analyze -depends Init {
 
 
 
-Task Deploy -depends Analyze {
+Task Deploy -depends Init {
        
     if ($env:APPVEYOR_REPO_BRANCH -ne 'master') 
     {
