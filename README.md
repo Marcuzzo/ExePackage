@@ -1,5 +1,7 @@
 # Executable install DSC Resource
 
+[![Build status](https://ci.appveyor.com/api/projects/status/ai7cs9ud2lb4axvc?svg=true)](https://ci.appveyor.com/project/Marcuzzo/exepackageresource)
+
 This is a quick and dirty way for me to install executable setup's
 
 PackageManagement (OneGet) CmdLets are used to detect the applications.
@@ -9,6 +11,12 @@ PackageManagement (OneGet) CmdLets are used to detect the applications.
 ```
 
 ## Example usage
+
+Install using PowershellGet
+
+> Install-Module -Name ExePackage
+
+
 
 ```powershell
 
