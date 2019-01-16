@@ -46,7 +46,7 @@ Task Deploy {
         Try 
         {            
             $PM = @{
-                Path        = '.\ExePackageResource'
+                Path        = '.\ExePackage'
                 NuGetApiKey = $env:NuGetApiKey
                 ErrorAction = 'Stop'
             }
