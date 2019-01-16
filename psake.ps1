@@ -46,7 +46,7 @@ Task Deploy {
         Try 
         {            
             $PM = @{
-                Path        = '.\PSTeamViewer'
+                Path        = '.\ExePackageResource'
                 NuGetApiKey = $env:NuGetApiKey
                 ErrorAction = 'Stop'
             }
