@@ -10,6 +10,7 @@ Properties {
     }
 
     $ProjectName = $ENV:APPVEYOR_PROJECT_NAME
+
     if(-not $ProjectName) { 
         [ValidateNotNullOrEmpty()]$ProjectName = (Get-ChildItem -Include *.psd1 -Recurse)[0].BaseName
     }
@@ -49,7 +50,7 @@ Task Analyze -depends Init {
 
 
 
-Task Deploy -depends Init {
+Task Deploy -depends Analyze {
        
     if ($env:APPVEYOR_REPO_BRANCH -ne 'master') 
     {
