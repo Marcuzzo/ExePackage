@@ -27,11 +27,29 @@ Properties {
 }
 
 
+Task Init {
+    $lines
+    Set-Location $ProjectRoot
+    "Build System Details:"
+    Get-Item ENV:APPVEYOR*
+    "`n"
+}
+
+Task Analyze -depends Init {    
+    "$lines`n`n`tSTATUS: Scanning for PSScriptAnalyzer Errors"
+
+    $ScanResults = Invoke-ScriptAnalyzer -Path "$ProjectRoot\$ProjectName" -Recurse -Severity Error
+
+    If ($ScanResults.count -gt 0)
+    {
+        Throw "Failed PSScriptAnalyzer Tests"
+    }
+}
 
 
 
 
-Task Deploy {
+Task Deploy -depends Analyze {
        
     if ($env:APPVEYOR_REPO_BRANCH -ne 'master') 
     {
